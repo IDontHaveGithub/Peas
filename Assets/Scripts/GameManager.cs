@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public static Camera main;
 
     public static GameObject[] others;
+    
+    public static bool start = false;
 
     // Start is called before the first frame update
     void Start()
@@ -15,12 +17,6 @@ public class GameManager : MonoBehaviour
 
         Invoke("GetCams", 1);
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
     }
 
     void GetCams()

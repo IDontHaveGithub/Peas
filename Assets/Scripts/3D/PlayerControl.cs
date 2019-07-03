@@ -19,6 +19,7 @@ public class PlayerControl : MonoBehaviour
     private float InputV;
 
     private bool crouch = false;
+    private bool Done;
 
     private AudioSource footsteps;
 
@@ -133,8 +134,17 @@ public class PlayerControl : MonoBehaviour
         {
             Debug.Log("Start Game");
             GameManager.StartGame();
+            GameManager.start = true;
         }
         
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Starter")
+        {
+            GameManager.start = false;
+        }
     }
 
     public void Jump()

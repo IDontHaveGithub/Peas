@@ -43,6 +43,8 @@ public class Maze2 : MonoBehaviour
     private int vistitedCells = 0;
     private bool startedBuilding = false;
     private int currentNeighbour = 0;
+    //public bool done = false;
+
     private List<int> lastCells;
     private int backingUp = 0;
     private int wallToBreak = 0;
@@ -121,7 +123,7 @@ public class Maze2 : MonoBehaviour
 
         //get all children
         for (int i = 0; i < children; i++)
-        {            
+        {
             allWalls[i] = wallHolder.transform.GetChild(i).gameObject;
         }
         //assigns walls to cells
@@ -145,7 +147,8 @@ public class Maze2 : MonoBehaviour
             cells[cellProcess].north = allWalls[(childProcess + (xSize + 1) * ySize) + xSize - 1];
         }
         GetCellPosition();
-        CreateMaze();
+
+        //CreateMaze();
     }
 
     //get middle of cell position to prepare for spawning rooms
@@ -225,34 +228,34 @@ public class Maze2 : MonoBehaviour
     }
 
     //delete random walls from cells to create the maze.
-    void CreateMaze()
+    public void CreateMaze()
     {
-        while (vistitedCells < totalCells)
+        //while (vistitedCells < currentRoom)
+        //{
+        if (startedBuilding)
         {
-            if (startedBuilding)
+            GiveMeNeighbour();
+            if (cells[currentNeighbour].visited == false && cells[currentCell].visited == true)
             {
-                GiveMeNeighbour();
-                if (cells[currentNeighbour].visited == false && cells[currentCell].visited == true)
+                BreakWall();
+                cells[currentNeighbour].visited = true;
+                vistitedCells++;
+                lastCells.Add(currentCell);
+                currentCell = currentNeighbour;
+                if (lastCells.Count > 0)
                 {
-                    BreakWall();
-                    cells[currentNeighbour].visited = true;
-                    vistitedCells++;
-                    lastCells.Add(currentCell);
-                    currentCell = currentNeighbour;
-                    if (lastCells.Count > 0)
-                    {
-                        backingUp = lastCells.Count - 1;
-                    }
+                    backingUp = lastCells.Count - 1;
                 }
             }
-            else
-            {
-                currentCell = Random.Range(0, totalCells);
-                cells[currentCell].visited = true;
-                vistitedCells++;
-                startedBuilding = true;
-            }
         }
+        else
+        {
+            currentCell = 0;
+            cells[currentCell].visited = true;
+            vistitedCells++;
+            startedBuilding = true;
+        }
+        // }
     }
 
     //the actual breaking of the walls
@@ -261,16 +264,16 @@ public class Maze2 : MonoBehaviour
         switch (wallToBreak)
         {
             case 1:
-              //  Instantiate(door, cells[currentCell].north.transform.position, Quaternion.Euler(-90f, 0f, 0f), cellHolder.transform);
+                //Instantiate(door, cells[currentCell].north.transform.position, Quaternion.Euler(-90f, 0f, 0f), cellHolder.transform);
                 Destroy(cells[currentCell].north); break;
             case 2:
-             //   Instantiate(door, cells[currentCell].west.transform.position, Quaternion.Euler(-90f, 90f, 0f), cellHolder.transform);
+                //Instantiate(door, cells[currentCell].west.transform.position, Quaternion.Euler(-90f, 90f, 0f), cellHolder.transform);
                 Destroy(cells[currentCell].west); break;
             case 3:
-              //  Instantiate(door, cells[currentCell].south.transform.position, Quaternion.Euler(-90f, 0f, 0f), cellHolder.transform);
+                //Instantiate(door, cells[currentCell].south.transform.position, Quaternion.Euler(-90f, 0f, 0f), cellHolder.transform);
                 Destroy(cells[currentCell].south); break;
             case 4:
-             //   Instantiate(door, cells[currentCell].east.transform.position, Quaternion.Euler(-90f, 90f, 0f), cellHolder.transform);
+                //Instantiate(door, cells[currentCell].east.transform.position, Quaternion.Euler(-90f, 90f, 0f), cellHolder.transform);
                 Destroy(cells[currentCell].east); break;
         }
     }
