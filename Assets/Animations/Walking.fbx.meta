@@ -1,0 +1,236 @@
+fileFormatVersion: 2
+guid: ce2be2ee00043534287f2dbbde3d119d
+ModelImporter:
+  serializedVersion: 25
+  internalIDToNameTable:
+  - first:
+      74: -203655887218126122
+    second: Walking
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 1
+    motionNodeName: 
+    rigImportErrors: "Invalid copied Avatar Rig Configuration:\n\tNo human bone found.
+      Ensure both rig type match\n"
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths:
+    - Armature
+    - Armature/Bone.Foot_CTRL.L
+    - Armature/Bone.Foot_CTRL.L/Bone.Bank_Left.L
+    - Armature/Bone.Foot_CTRL.L/Bone.Bank_Left.L/Bone.Bank_Right.L
+    - Armature/Bone.Foot_CTRL.L/Bone.Bank_Left.L/Bone.Bank_Right.L/Bone.Heel.L
+    - Armature/Bone.Foot_CTRL.L/Bone.Bank_Left.L/Bone.Bank_Right.L/Bone.Heel.L/Bone.IK_Knee.L
+    - Armature/Bone.Foot_CTRL.L/Bone.Bank_Left.L/Bone.Bank_Right.L/Bone.Heel.L/Bone.IK_Knee.L/Bone.IK_Knee.L_end
+    - Armature/Bone.Foot_CTRL.L/Bone.Bank_Left.L/Bone.Bank_Right.L/Bone.Heel.L/Bone.Toe_Roll.L
+    - Armature/Bone.Foot_CTRL.L/Bone.Bank_Left.L/Bone.Bank_Right.L/Bone.Heel.L/Bone.Toe_Roll.L/Bone.Ball_Roll.L
+    - Armature/Bone.Foot_CTRL.L/Bone.Bank_Left.L/Bone.Bank_Right.L/Bone.Heel.L/Bone.Toe_Roll.L/Bone.Ball_Roll.L/Bone.IK_Target.L
+    - Armature/Bone.Foot_CTRL.L/Bone.Bank_Left.L/Bone.Bank_Right.L/Bone.Heel.L/Bone.Toe_Roll.L/Bone.Ball_Roll.L/Bone.IK_Target.L/Bone.IK_Target.L_end
+    - Armature/Bone.Foot_CTRL.L/Bone.Bank_Left.L/Bone.Bank_Right.L/Bone.Heel.L/Bone.Toe_Roll.L/Bone.Toe_Tap.L
+    - Armature/Bone.Foot_CTRL.L/Bone.Bank_Left.L/Bone.Bank_Right.L/Bone.Heel.L/Bone.Toe_Roll.L/Bone.Toe_Tap.L/IK_Toe_01.L
+    - Armature/Bone.Foot_CTRL.L/Bone.Bank_Left.L/Bone.Bank_Right.L/Bone.Heel.L/Bone.Toe_Roll.L/Bone.Toe_Tap.L/IK_Toe_01.L/IK_Toe_01.L_end
+    - Armature/Bone.Foot_CTRL.L/Bone.Bank_Left.L/Bone.Bank_Right.L/Bone.Heel.L/Bone.Toe_Roll.L/IK_Foot_01.L
+    - Armature/Bone.Foot_CTRL.L/Bone.Bank_Left.L/Bone.Bank_Right.L/Bone.Heel.L/Bone.Toe_Roll.L/IK_Foot_01.L/IK_Foot_01.L_end
+    - Armature/Bone.Foot_CTRL.R.001
+    - Armature/Bone.Foot_CTRL.R.001/Bone.Bank_Left.R.001
+    - Armature/Bone.Foot_CTRL.R.001/Bone.Bank_Left.R.001/Bone.Bank_Right.R.001
+    - Armature/Bone.Foot_CTRL.R.001/Bone.Bank_Left.R.001/Bone.Bank_Right.R.001/Bone.Heel.R.001
+    - Armature/Bone.Foot_CTRL.R.001/Bone.Bank_Left.R.001/Bone.Bank_Right.R.001/Bone.Heel.R.001/Bone.IK_Knee.R.001
+    - Armature/Bone.Foot_CTRL.R.001/Bone.Bank_Left.R.001/Bone.Bank_Right.R.001/Bone.Heel.R.001/Bone.IK_Knee.R.001/Bone.IK_Knee.R.001_end
+    - Armature/Bone.Foot_CTRL.R.001/Bone.Bank_Left.R.001/Bone.Bank_Right.R.001/Bone.Heel.R.001/Bone.Toe_Roll.R.001
+    - Armature/Bone.Foot_CTRL.R.001/Bone.Bank_Left.R.001/Bone.Bank_Right.R.001/Bone.Heel.R.001/Bone.Toe_Roll.R.001/Bone.Ball_Roll.R.001
+    - Armature/Bone.Foot_CTRL.R.001/Bone.Bank_Left.R.001/Bone.Bank_Right.R.001/Bone.Heel.R.001/Bone.Toe_Roll.R.001/Bone.Ball_Roll.R.001/Bone.IK_Target.R.001
+    - Armature/Bone.Foot_CTRL.R.001/Bone.Bank_Left.R.001/Bone.Bank_Right.R.001/Bone.Heel.R.001/Bone.Toe_Roll.R.001/Bone.Ball_Roll.R.001/Bone.IK_Target.R.001/Bone.IK_Target.R.001_end
+    - Armature/Bone.Foot_CTRL.R.001/Bone.Bank_Left.R.001/Bone.Bank_Right.R.001/Bone.Heel.R.001/Bone.Toe_Roll.R.001/Bone.Toe_Tap.R.001
+    - Armature/Bone.Foot_CTRL.R.001/Bone.Bank_Left.R.001/Bone.Bank_Right.R.001/Bone.Heel.R.001/Bone.Toe_Roll.R.001/Bone.Toe_Tap.R.001/IK_Toe_01.R.001
+    - Armature/Bone.Foot_CTRL.R.001/Bone.Bank_Left.R.001/Bone.Bank_Right.R.001/Bone.Heel.R.001/Bone.Toe_Roll.R.001/Bone.Toe_Tap.R.001/IK_Toe_01.R.001/IK_Toe_01.R.001_end
+    - Armature/Bone.Foot_CTRL.R.001/Bone.Bank_Left.R.001/Bone.Bank_Right.R.001/Bone.Heel.R.001/Bone.Toe_Roll.R.001/IK_Foot_01.R.001
+    - Armature/Bone.Foot_CTRL.R.001/Bone.Bank_Left.R.001/Bone.Bank_Right.R.001/Bone.Heel.R.001/Bone.Toe_Roll.R.001/IK_Foot_01.R.001/IK_Foot_01.R.001_end
+    - Armature/Bone.IK_Arm_Target.L
+    - Armature/Bone.IK_Arm_Target.L/Bone.IK_Arm_Target.L_end
+    - Armature/Bone.IK_Arm_Target.R.001
+    - Armature/Bone.IK_Arm_Target.R.001/Bone.IK_Arm_Target.R.001_end
+    - Armature/Bone.IK_Elbow.L
+    - Armature/Bone.IK_Elbow.L/Bone.IK_Elbow.L_end
+    - Armature/Bone.IK_Elbow.R.001
+    - Armature/Bone.IK_Elbow.R.001/Bone.IK_Elbow.R.001_end
+    - Armature/Hips
+    - Armature/Hips/Bone.Leg_upper.L
+    - Armature/Hips/Bone.Leg_upper.L/Bone.Leg_Lower.L
+    - Armature/Hips/Bone.Leg_upper.L/Bone.Leg_Lower.L/Bone.Foot.L
+    - Armature/Hips/Bone.Leg_upper.L/Bone.Leg_Lower.L/Bone.Foot.L/Bone.Toe.L
+    - Armature/Hips/Bone.Leg_upper.L/Bone.Leg_Lower.L/Bone.Foot.L/Bone.Toe.L/Bone.Toe.L_end
+    - Armature/Hips/Bone.Leg_upper.R.001
+    - Armature/Hips/Bone.Leg_upper.R.001/Bone.Leg_Lower.R.001
+    - Armature/Hips/Bone.Leg_upper.R.001/Bone.Leg_Lower.R.001/Bone.Foot.R.001
+    - Armature/Hips/Bone.Leg_upper.R.001/Bone.Leg_Lower.R.001/Bone.Foot.R.001/Bone.Toe.R.001
+    - Armature/Hips/Bone.Leg_upper.R.001/Bone.Leg_Lower.R.001/Bone.Foot.R.001/Bone.Toe.R.001/Bone.Toe.R.001_end
+    - Armature/IK_Foot_Pole.L
+    - Armature/IK_Foot_Pole.L/IK_Foot_Pole.L_end
+    - Armature/IK_Foot_Pole.R.001
+    - Armature/IK_Foot_Pole.R.001/IK_Foot_Pole.R.001_end
+    - Armature/IK_Toe_Pole.L
+    - Armature/IK_Toe_Pole.L/IK_Toe_Pole.L_end
+    - Armature/IK_Toe_Pole.R.001
+    - Armature/IK_Toe_Pole.R.001/IK_Toe_Pole.R.001_end
+    - Armature/Root
+    - Armature/Root/Spine01
+    - Armature/Root/Spine01/Spine02
+    - Armature/Root/Spine01/Spine02/Bone.Shoulder.L
+    - Armature/Root/Spine01/Spine02/Bone.Shoulder.L/Bone.Arm_Upper.L
+    - Armature/Root/Spine01/Spine02/Bone.Shoulder.L/Bone.Arm_Upper.L/Bone.Arm_Lower.L
+    - Armature/Root/Spine01/Spine02/Bone.Shoulder.L/Bone.Arm_Upper.L/Bone.Arm_Lower.L/Bone.Hand.L
+    - Armature/Root/Spine01/Spine02/Bone.Shoulder.L/Bone.Arm_Upper.L/Bone.Arm_Lower.L/Bone.Hand.L/Bone.Hand.L_end
+    - Armature/Root/Spine01/Spine02/Bone.Shoulder.R.001
+    - Armature/Root/Spine01/Spine02/Bone.Shoulder.R.001/Bone.Arm_Upper.R.001
+    - Armature/Root/Spine01/Spine02/Bone.Shoulder.R.001/Bone.Arm_Upper.R.001/Bone.Arm_Lower.R.001
+    - Armature/Root/Spine01/Spine02/Bone.Shoulder.R.001/Bone.Arm_Upper.R.001/Bone.Arm_Lower.R.001/Bone.Hand.R.001
+    - Armature/Root/Spine01/Spine02/Bone.Shoulder.R.001/Bone.Arm_Upper.R.001/Bone.Arm_Lower.R.001/Bone.Hand.R.001/Bone.Hand.R.001_end
+    - Armature/Root/Spine01/Spine02/Neck
+    - Armature/Root/Spine01/Spine02/Neck/Head
+    - Armature/Root/Spine01/Spine02/Neck/Head/Head_end
+    - Body
+    - Body/Arm_Under.L
+    - Body/Arm_Under.R
+    - Body/Arm_Upper.L
+    - Body/Arm_Upper.R
+    - Body/Elbow.L
+    - Body/Elbow.R
+    - Body/Foot.L
+    - Body/Foot.R
+    - Body/Hand.L
+    - Body/Hand.R
+    - Body/Head1
+    - Body/Hips1
+    - Body/Knee.L
+    - Body/Knee.R
+    - Body/Leg_Under.L
+    - Body/Leg_Under.R
+    - Body/Leg_Upper.L
+    - Body/Leg_Upper.R
+    - Body/Neck1
+    - Body/Torso
+    - Shape.BallRoll.L
+    - Shape.Foot.L
+    - Shape.Hand.L
+    - Shape.Head
+    - Shape.HeelRoll.L
+    - Shape.Hips
+    - Shape.Knee.L
+    - Shape.Neck
+    - Shape.Root
+    - Shape.Shoulder.L
+    - Shape.Spine_01
+    - Shape.Spine_02
+    - Shape.ToeLift.L
+    - Shape.ToeRoll.L
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walking
+      takeName: mixamo.com
+      internalID: -203655887218126122
+      firstFrame: 0
+      lastFrame: 26
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
