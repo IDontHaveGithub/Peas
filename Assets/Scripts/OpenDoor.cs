@@ -5,15 +5,17 @@ using UnityEngine.UI;
 
 public class OpenDoor : MonoBehaviour
 {
-    public Button openDoorsie;
-    public Text currentRoomsie;
+    //because it's not done yet, for now a button to open the next door, later done by finishing a puzzle of following the parkour.
+
+    public Button openDoor;
+    public Text currentRoom;
 
     public Maze2 maze2;
 
     // Start is called before the first frame update
     void Start()
     {
-        openDoorsie.enabled = false;
+        openDoor.enabled = false;
     }
 
     // Update is called once per frame
@@ -21,12 +23,12 @@ public class OpenDoor : MonoBehaviour
     {
         if (GameManager.start)
         {
-            openDoorsie.enabled = true;
+            openDoor.enabled = true;
         }
-        else { openDoorsie.enabled = false; }
+        else { openDoor.enabled = false; }
     }
 
-    public void OpenZeDoor(int currentRoom)
+    public void OpenTheDoor(int currentRoom)
     {
         maze2.CreateMaze();
     }

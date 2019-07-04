@@ -10,7 +10,7 @@ public class ButtonB : MonoBehaviour
 
     SimonController simonController;
     
-
+    //initialize all things
     void Start()
     {
         simonController = GetComponentInParent<SimonController>();
@@ -19,7 +19,7 @@ public class ButtonB : MonoBehaviour
         anim.enabled = false;
     }
 
-    //mouse control
+    //ifCLicked
     void OnMouseDown()
     {
         if (!simonController.simonIsSaying)
@@ -29,7 +29,7 @@ public class ButtonB : MonoBehaviour
         }
     }
 
-    //show that block is hit
+    //show that block is hit by lighting it up
     public void Action()
     {
         anim.enabled = true;

@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         main = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-
-        Invoke("GetCams", 1);
+        //little delay to spawn everything correctly first
+        Invoke("GetCams", 0.1f);
         
     }
 
@@ -31,11 +31,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //start any puzzle
     public static void StartGame()
     {
         Debug.Log("This is where I need to have the right cell to turn on the right camera and start the right game.");
     }
 
+    //quit the game after finishing, cause no menu
     public static void EndGame()
     {
         Debug.Log("Quitting");

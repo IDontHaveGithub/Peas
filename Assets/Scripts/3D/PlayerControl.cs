@@ -74,9 +74,11 @@ public class PlayerControl : MonoBehaviour
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
 
             moveDirection = moveDirection * speed;
+
             //different inputs only used for animations
             InputH = moveDirection.x;
             InputV = moveDirection.z;
+
             moveDirection = transform.TransformDirection(moveDirection);
 
             //jump anim
@@ -89,6 +91,7 @@ public class PlayerControl : MonoBehaviour
                 anim.SetBool("Jump", false);
             }
 
+            //walk animations
             if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
             {
                 anim.SetBool("Idle", false);
@@ -103,40 +106,31 @@ public class PlayerControl : MonoBehaviour
         // Move the player
         player.Move(moveDirection * Time.deltaTime);
 
-        //no turning the player is Static button is held
+        //no turning the player if Static button is held
         if (!Input.GetButton("Static"))
         {
             transform.Rotate(0.0f, Input.GetAxis("Mouse X") * 50f * Time.deltaTime, 0.0f);
         }
 
+        //walking animations triggers
         anim.SetFloat("InputH", InputH);
         anim.SetFloat("InputV", InputV);
 
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Hit");
-        
-    }
-
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hit2");
         if (other.transform.tag == "End")
         {
-            Debug.Log("Hit End");
             GameManager.EndGame();
         }
         
         //write code to activate cellgame
         if(other.tag == "Starter")
         {
-            Debug.Log("Start Game");
             GameManager.StartGame();
             GameManager.start = true;
         }
-        
     }
 
     public void OnTriggerExit(Collider other)
@@ -147,17 +141,15 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+
     public void Jump()
     {
-        Debug.Log("Jump");
         moveDirection.y = jumpSpeed;
     }
-
     public void Crouch()
     {
         crouch = true;
     }
-
     public void NotCrouch()
     {
         crouch = false;

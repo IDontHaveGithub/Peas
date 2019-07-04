@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SimonController : MonoBehaviour
 {
-
-    public Camera cam;
     public GameObject Starter;
 
     public SimonController Instance;
@@ -16,9 +14,6 @@ public class SimonController : MonoBehaviour
 
     private List<int> userList, simonList;
     public bool simonIsSaying;
-
-    
-
 
     // Start is called before the first frame update
     void Start()
@@ -42,11 +37,11 @@ public class SimonController : MonoBehaviour
         if (userList[userList.Count - 1] != simonList[userList.Count - 1])
         {
             Start();
-            Debug.Log("Lose");
+            //Debug.Log("Lose");
         }
         if (userList.Count == simonList.Count)
         {
-            Debug.Log("Next level");
+            // Debug.Log("Next level");
             if (simonMax < 8)
             {
                 StartCoroutine(SimonSays());
@@ -55,9 +50,10 @@ public class SimonController : MonoBehaviour
         }
     }
 
+    //write script to turn on the right camera and play the game
     public void GO()
     {
-        GameManager.others[/*find the right camera*/5].SetActive(true);
+        //GameManager.others[/*find the right camera*/5].SetActive(true);
         StartCoroutine(SimonSays());
     }
     
@@ -65,7 +61,7 @@ public class SimonController : MonoBehaviour
     //creates the order of the saying
     IEnumerator SimonSays()
     {
-        Debug.Log("Prepare");
+       // Debug.Log("Prepare");
         yield return new WaitForSeconds(1);
 
         simonIsSaying = true;
@@ -96,7 +92,7 @@ public class SimonController : MonoBehaviour
             }
         }
 
-        //prepeare for next round and end this one
+        //prepare for next round and end this one
         simonTime -= 0.015f;
         simonMax++;
         simonIsSaying = false;

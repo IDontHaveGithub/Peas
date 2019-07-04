@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TurnLightOut : MonoBehaviour
 {
+    //reference tot other script and the sound
     LightsOut lightsOut;
     AudioSource note;
 
@@ -13,6 +14,7 @@ public class TurnLightOut : MonoBehaviour
         lightsOut = GetComponentInParent<LightsOut>();
     }
     
+    // ifClicked
     void OnMouseDown()
     {
         lightsOut.currentCell = int.Parse(gameObject.name);

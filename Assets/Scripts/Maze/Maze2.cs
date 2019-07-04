@@ -30,50 +30,45 @@ public class Maze2 : MonoBehaviour
     //placement of first wall
     private Vector3 initialPos = new Vector3(0, 0.5f, 0);
 
-    //objects to hold the others inside
+    //parent objects
     private GameObject wallHolder;
     private GameObject cellHolder;
 
+
+    //anythign related to cells
     [SerializeField]
     private Cell[] cells;
     private int currentCell = 0;
     private int totalCells;
-
     private Vector3[] cellPosition;
     private int vistitedCells = 0;
+
     private bool startedBuilding = false;
     private int currentNeighbour = 0;
-    //public bool done = false;
 
     private List<int> lastCells;
     private int backingUp = 0;
     private int wallToBreak = 0;
-
-    //simple colours to assign to random cells, to check if I can spawn in different rooms
-    //private Renderer cellColour;
-    //private List<Color> colors = new List<Color>()
-    //{
-    //    Color.red,Color.blue,Color.green,Color.yellow,Color.magenta
-    //};
 
 
     // Start is called before the first frame update
     void Start()
     {
         //check size wallobject
-        wallLength = wall.transform.localScale.z*2;
+        wallLength = wall.transform.localScale.z * 2;
 
-
-       // main.transform.position = new Vector3(xSize * wallLength, 20, ySize * wallLength);
+        //place the camera right
+        //main.transform.position = new Vector3(xSize * wallLength, 20, ySize * wallLength);
         //main.orthographicSize = xSize * 4;
 
 
         CreateWalls();
     }
 
-    //start maze creation
+    //make the grid of the temporary walls
     void CreateWalls()
     {
+        //create the parent
         wallHolder = new GameObject();
         wallHolder.name = "Maze";
 
@@ -147,8 +142,6 @@ public class Maze2 : MonoBehaviour
             cells[cellProcess].north = allWalls[(childProcess + (xSize + 1) * ySize) + xSize - 1];
         }
         GetCellPosition();
-
-        //CreateMaze();
     }
 
     //get middle of cell position to prepare for spawning rooms
@@ -161,12 +154,9 @@ public class Maze2 : MonoBehaviour
             cellPosition[i] = cells[i].west.transform.position + new Vector3(wallLength + wallLength / 2, -1.4f, 0);
         }
         MakeCells();
-
-       // main.transform.position = cellPosition[Mathf.RoundToInt(cells.Length / 2)];
-       // main.transform.position = new Vector3(main.transform.position.x, 20, main.transform.position.z);
     }
 
-    //spawn "rooms" for now colored cubes
+    //spawn "rooms" for now colored cubes and rest of the walls
     void MakeCells()
     {
         cellHolder = new GameObject();
@@ -177,11 +167,7 @@ public class Maze2 : MonoBehaviour
 
         int end = Random.Range(1, 25);
         for (int i = 0; i < cellPosition.Length; i++)
-        {
-            //spawn random "room"
-            //now still a coloured cube, also still spawns "room" first than changes colour, needs to spawn random coloured cube.
-
-            
+        {            
             if (i == 0)
             {
                 tempCell = Instantiate(cell[4], cellPosition[i], Quaternion.identity, cellHolder.transform);
@@ -192,8 +178,6 @@ public class Maze2 : MonoBehaviour
             }
             else
                 tempCell = Instantiate(cell[Random.Range(0,3)], cellPosition[i], Quaternion.identity, cellHolder.transform);
-            //cellColour = tempCell.GetComponent<Renderer>();
-            //cellColour.material.color = colors[Random.Range(0,5)];
 
 
             //create more walls that are permanent to make maze seem bigger and create doorways instead of missing walls
@@ -230,8 +214,6 @@ public class Maze2 : MonoBehaviour
     //delete random walls from cells to create the maze.
     public void CreateMaze()
     {
-        //while (vistitedCells < currentRoom)
-        //{
         if (startedBuilding)
         {
             GiveMeNeighbour();
@@ -255,7 +237,6 @@ public class Maze2 : MonoBehaviour
             vistitedCells++;
             startedBuilding = true;
         }
-        // }
     }
 
     //the actual breaking of the walls
@@ -264,16 +245,12 @@ public class Maze2 : MonoBehaviour
         switch (wallToBreak)
         {
             case 1:
-                //Instantiate(door, cells[currentCell].north.transform.position, Quaternion.Euler(-90f, 0f, 0f), cellHolder.transform);
                 Destroy(cells[currentCell].north); break;
             case 2:
-                //Instantiate(door, cells[currentCell].west.transform.position, Quaternion.Euler(-90f, 90f, 0f), cellHolder.transform);
                 Destroy(cells[currentCell].west); break;
             case 3:
-                //Instantiate(door, cells[currentCell].south.transform.position, Quaternion.Euler(-90f, 0f, 0f), cellHolder.transform);
                 Destroy(cells[currentCell].south); break;
             case 4:
-                //Instantiate(door, cells[currentCell].east.transform.position, Quaternion.Euler(-90f, 90f, 0f), cellHolder.transform);
                 Destroy(cells[currentCell].east); break;
         }
     }
