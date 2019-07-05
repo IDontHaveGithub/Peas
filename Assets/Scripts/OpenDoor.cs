@@ -26,6 +26,11 @@ public class OpenDoor : MonoBehaviour
             openDoor.enabled = true;
         }
         else { openDoor.enabled = false; }
+
+        if(openDoor.enabled && Input.GetKeyDown(KeyCode.E))
+        {
+            OpenTheDoor(0);
+        }
     }
 
     public void OpenTheDoor(int currentRoom)

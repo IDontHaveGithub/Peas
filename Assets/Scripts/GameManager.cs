@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     {
         main = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         //little delay to spawn everything correctly first
-        Invoke("GetCams", 0.1f);
+        Invoke("GetCams", 0.001f);
         
     }
 
@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    
 
     //start any puzzle
     public static void StartGame()

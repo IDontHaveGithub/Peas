@@ -170,6 +170,7 @@ public class LightsOut : MonoBehaviour
         {
             //write WinCondition
             Debug.Log("Win"); //that's not wincondition
+            LevelManager.MainMenu();
         }
 
     }

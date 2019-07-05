@@ -122,7 +122,8 @@ public class PlayerControl : MonoBehaviour
     {
         if (other.transform.tag == "End")
         {
-            GameManager.EndGame();
+            LevelManager.MainMenu();
+           // GameManager.EndGame();
         }
         
         //write code to activate cellgame

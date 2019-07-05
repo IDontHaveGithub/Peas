@@ -46,7 +46,11 @@ public class SimonController : MonoBehaviour
             {
                 StartCoroutine(SimonSays());
             }
-            else { Debug.Log("Open door"); }
+            else
+            {
+                Debug.Log("Open door");
+                LevelManager.MainMenu();
+            }
         }
     }
 
