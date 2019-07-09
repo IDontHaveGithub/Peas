@@ -28,8 +28,8 @@ public class PlayerControl : MonoBehaviour
         footsteps = GetComponent<AudioSource>();
         player = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
-
-        Cursor.visible = false;
+        
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -37,7 +37,6 @@ public class PlayerControl : MonoBehaviour
         //speed for sprinting
         if (Input.GetButton("Run"))
         {
-            
             speed = 6f;
         }
         else
