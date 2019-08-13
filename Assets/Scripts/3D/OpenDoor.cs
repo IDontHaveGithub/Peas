@@ -6,11 +6,10 @@ using UnityEngine.UI;
 public class OpenDoor : MonoBehaviour
 {
     //because it's not done yet, for now a button to open the next door, later done by finishing a puzzle of following the parkour.
-
     public Button openDoor;
     public Text currentRoom;
 
-    public Maze2 maze2;
+    public Maze maze;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +34,6 @@ public class OpenDoor : MonoBehaviour
 
     public void OpenTheDoor(int currentRoom)
     {
-        maze2.CreateMaze();
+        maze.CreateMaze();
     }
 }

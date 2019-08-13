@@ -623,18 +623,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e8dd82aaa243e438fbdf8dfb1a2866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myPos: {x: 0, y: 0, z: 0}
+  xSize: 5
+  ySize: 5
+  wall: {fileID: 4109747581206347015, guid: 35240df74aebd83489e1f196ffeb9e43, type: 3}
+  door: {fileID: 5108639783623172796, guid: a8256bafe490bf5418f937f6f4fadead, type: 3}
+  cells: []
   cell:
   - {fileID: 6378162116405278031, guid: fb4e9ebb53e781b4c819dda06e6fbf69, type: 3}
   - {fileID: 6378162116405278031, guid: 480f2ecc4686f3a47ba6bcb5f3c15cc4, type: 3}
   - {fileID: 6378162116405278031, guid: 0f387e27dc4c4d745879abc9d25315cd, type: 3}
   - {fileID: 6378162116405278031, guid: b8e93c49cb1fdfb4c86f5e407988265d, type: 3}
   - {fileID: 6378162116405278031, guid: 6aaa1d2d8d334db4bb72dfbe63cb54cd, type: 3}
-  wall: {fileID: 4109747581206347015, guid: 35240df74aebd83489e1f196ffeb9e43, type: 3}
-  door: {fileID: 5108639783623172796, guid: a8256bafe490bf5418f937f6f4fadead, type: 3}
-  xSize: 5
-  ySize: 5
-  cells: []
 --- !u!1 &1717704402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,4 +1182,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openDoor: {fileID: 2141170585}
   currentRoom: {fileID: 1493070359}
-  maze2: {fileID: 1670020723}
+  maze: {fileID: 1670020723}

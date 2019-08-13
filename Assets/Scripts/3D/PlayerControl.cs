@@ -10,18 +10,16 @@ public class PlayerControl : MonoBehaviour
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
 
-    public Vector3 moveDirection = Vector3.zero;
-    private CharacterController player;
-
-    //everything needed for animations
-    private Animator anim;
     private float InputH;
     private float InputV;
 
-    private bool crouch = false;
-    private bool Done;
+    private Vector3 moveDirection = Vector3.zero;
 
-    private AudioSource footsteps;
+    private bool crouch = false;
+
+    private CharacterController player;
+    private Animator anim;
+    private AudioSource footsteps;    
 
     void Start()
     {
@@ -49,7 +47,7 @@ public class PlayerControl : MonoBehaviour
         anim.SetBool("Crouch", Input.GetButton("Crouch"));
        
 
-        //ActionRoll
+        //Action roll
         anim.SetBool("ActionRoll", Input.GetButton("ActionRoll"));
 
 
@@ -65,6 +63,7 @@ public class PlayerControl : MonoBehaviour
             InputH = moveDirection.x;
             InputV = moveDirection.z;
 
+            //actual movement
             moveDirection = transform.TransformDirection(moveDirection);
 
             //jump anim
@@ -81,8 +80,9 @@ public class PlayerControl : MonoBehaviour
         // Apply gravity
         moveDirection.y = moveDirection.y - (gravity * Time.deltaTime);
 
-        if(!crouch)
+
         // Move the player
+        if (!crouch)
         player.Move(moveDirection * Time.deltaTime);
 
         //no turning the player if Static button is held
@@ -99,17 +99,19 @@ public class PlayerControl : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        //HACK: searching for tags is a nice way, but a bit rudimental, can you change this
         if (other.transform.tag == "End")
         {
             LevelManager.MainMenu();
-           // GameManager.EndGame();
+           // GameManager.EndGame(); //this is for now a debug and a application.quit
+           // TODO: think of a better ending to the game
         }
         
         //write code to activate cellgame
         if(other.tag == "Starter")
         {
-            GameManager.StartGame();
-            GameManager.start = true;
+            GameManager.StartGame(); //this is for now a debug
+            GameManager.start = true; //BUG: this bool is not being used
         }
     }
 

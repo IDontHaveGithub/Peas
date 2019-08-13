@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//temporary script to easily change levels
 public class LevelManager : MonoBehaviour
 {
     public void MainLevel()

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Maze2 : MonoBehaviour
+public class Maze : MonoBehaviour
 {
     //own class for every cell to assign walls easier and give them their own bool
     [System.Serializable]
@@ -12,44 +12,36 @@ public class Maze2 : MonoBehaviour
         public GameObject north, west, south, east;
     }
 
-    //camera variable to automatically place camera in right place
+    //used variable for testing
     //public Camera main;
-
-    public Vector3 myPos;
-    public GameObject[] cell = new GameObject[5];
-
-    //spawning objects and size of said object
-    public GameObject wall;
-    public GameObject door;
+    
     private float wallLength;
 
-    //size of maze
     public int xSize = 5;
     public int ySize = 5;
-
-    //placement of first wall
-    private Vector3 initialPos = new Vector3(0, 0.5f, 0);
-
-    //parent objects
-    private GameObject wallHolder;
-    private GameObject cellHolder;
-
-
-    //anythign related to cells
-    [SerializeField]
-    private Cell[] cells;
     private int currentCell = 0;
     private int totalCells;
-    private Vector3[] cellPosition;
     private int vistitedCells = 0;
-
-    private bool startedBuilding = false;
     private int currentNeighbour = 0;
-
-    private List<int> lastCells;
     private int backingUp = 0;
     private int wallToBreak = 0;
 
+    private Vector3 initialPos = new Vector3(0, 0.5f, 0);
+    private Vector3[] cellPosition;
+    private Vector3 myPos;
+
+    public GameObject wall;
+    public GameObject door;
+    private GameObject wallHolder;
+    private GameObject cellHolder;
+
+    private bool startedBuilding = false;
+
+    [SerializeField]
+    private Cell[] cells;
+
+    public GameObject[] cell = new GameObject[5];
+    private List<int> lastCells;
 
     // Start is called before the first frame update
     void Start()
@@ -57,11 +49,11 @@ public class Maze2 : MonoBehaviour
         //check size wallobject
         wallLength = wall.transform.localScale.z * 2;
 
-        //place the camera right
+        //place the camera right <-- bit of code used for testing maze
         //main.transform.position = new Vector3(xSize * wallLength, 20, ySize * wallLength);
         //main.orthographicSize = xSize * 4;
 
-
+        //start Maze generation
         CreateWalls();
     }
 
@@ -167,7 +159,7 @@ public class Maze2 : MonoBehaviour
 
         int end = Random.Range(1, 25);
         for (int i = 0; i < cellPosition.Length; i++)
-        {            
+        {
             if (i == 0)
             {
                 tempCell = Instantiate(cell[4], cellPosition[i], Quaternion.identity, cellHolder.transform);
@@ -177,8 +169,9 @@ public class Maze2 : MonoBehaviour
                 tempCell = Instantiate(cell[3], cellPosition[i], Quaternion.identity, cellHolder.transform);
             }
             else
-                tempCell = Instantiate(cell[Random.Range(0,3)], cellPosition[i], Quaternion.identity, cellHolder.transform);
-
+            {
+                tempCell = Instantiate(cell[Random.Range(0, 3)], cellPosition[i], Quaternion.identity, cellHolder.transform);
+            }
 
             //create more walls that are permanent to make maze seem bigger and create doorways instead of missing walls
             GameObject permWall;
