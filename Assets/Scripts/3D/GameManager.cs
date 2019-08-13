@@ -31,8 +31,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
-
     //start any puzzle
     public static void StartGame()
     {

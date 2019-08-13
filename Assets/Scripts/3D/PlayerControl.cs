@@ -45,11 +45,9 @@ public class PlayerControl : MonoBehaviour
 
         //crouch anim
         anim.SetBool("Crouch", Input.GetButton("Crouch"));
-       
 
         //Action roll
         anim.SetBool("ActionRoll", Input.GetButton("ActionRoll"));
-
 
         if (player.isGrounded)
         {
@@ -80,7 +78,6 @@ public class PlayerControl : MonoBehaviour
         // Apply gravity
         moveDirection.y = moveDirection.y - (gravity * Time.deltaTime);
 
-
         // Move the player
         if (!crouch)
         player.Move(moveDirection * Time.deltaTime);
@@ -94,7 +91,6 @@ public class PlayerControl : MonoBehaviour
         //walking animations triggers
         anim.SetFloat("InputH", InputH);
         anim.SetFloat("InputV", InputV);
-
     }
 
     public void OnTriggerEnter(Collider other)
