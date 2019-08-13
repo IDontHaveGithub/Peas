@@ -46,24 +46,11 @@ public class PlayerControl : MonoBehaviour
         }
 
         //crouch anim
-        if (Input.GetButton("Crouch"))
-        {
-            anim.SetBool("Crouch", true);
-        }
-        else
-        {
-            anim.SetBool("Crouch", false);
-        }
+        anim.SetBool("Crouch", Input.GetButton("Crouch"));
+       
 
         //ActionRoll
-        if (Input.GetButton("ActionRoll"))
-        {
-            anim.SetBool("ActionRoll", true);
-        }
-        else
-        {
-            anim.SetBool("ActionRoll", false);
-        }
+        anim.SetBool("ActionRoll", Input.GetButton("ActionRoll"));
 
 
         if (player.isGrounded)
@@ -81,15 +68,8 @@ public class PlayerControl : MonoBehaviour
             moveDirection = transform.TransformDirection(moveDirection);
 
             //jump anim
-            if (Input.GetButton("Jump"))
-            {
-                anim.SetBool("Jump", true);
-            }
-            else
-            {
-                anim.SetBool("Jump", false);
-            }
-
+            anim.SetBool("Jump", Input.GetButton("Jump"));
+            
             //walk animations
             if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
             {
@@ -148,11 +128,7 @@ public class PlayerControl : MonoBehaviour
     }
     public void Crouch()
     {
-        crouch = true;
-    }
-    public void NotCrouch()
-    {
-        crouch = false;
+        crouch = !crouch;
     }
     public void Run()
     {
