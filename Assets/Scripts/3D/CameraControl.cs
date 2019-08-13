@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-    public GameObject player;
-    private Vector3 offset;
+    private float distance;
 
-    float distance;
-    Vector3 playerPrevPos, playerMoveDir;
+    public GameObject player;
+
+    private Vector3 offset;
+    private Vector3 playerPrevPos, playerMoveDir;
 
     // Use this for initialization
     void Start()

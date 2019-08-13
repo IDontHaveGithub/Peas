@@ -153,7 +153,6 @@ public class Maze : MonoBehaviour
     {
         cellHolder = new GameObject();
         cellHolder.name = "cells";
-        cellHolder.transform.SetParent(wallHolder.transform);
 
         GameObject tempCell;
 

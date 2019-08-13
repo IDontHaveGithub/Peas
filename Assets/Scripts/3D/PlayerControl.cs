@@ -106,7 +106,7 @@ public class PlayerControl : MonoBehaviour
         //write code to activate cellgame
         if(other.tag == "Starter")
         {
-            GameManager.StartGame(); //this is for now a debug
+            GameManager.StartGame(other.transform.parent.GetSiblingIndex(), other.transform.parent.gameObject); //this is for now a debug
             GameManager.start = true; //BUG: this bool is not being used
         }
     }

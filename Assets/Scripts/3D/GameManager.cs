@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
         main = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         //little delay to spawn everything correctly first
         Invoke("GetCams", 0.001f);
-        
     }
 
     void GetCams()
@@ -32,8 +31,25 @@ public class GameManager : MonoBehaviour
     }
 
     //start any puzzle
-    public static void StartGame()
+    public static void StartGame(int cell, GameObject game)
     {
+        Debug.Log("this is starter number: " + cell); //got the cell, now the camera
+        Debug.Log(game.name);
+        if (game.name == "SimonCell(Clone)")
+        {
+            Camera cam;
+            foreach (GameObject child in game.transform)
+            {
+                cam = child.GetComponent<Camera>();
+                if (cam)
+                {
+                    main.gameObject.SetActive(false);
+                    cam.enabled = true;
+                }
+
+            }
+        }
+
         Debug.Log("This is where I need to have the right cell to turn on the right camera and start the right game.");
     }
 
