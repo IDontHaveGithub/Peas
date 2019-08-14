@@ -16,7 +16,7 @@ public class PlayerControl : MonoBehaviour
 
     private CharacterController player;
     private Animator anim;
-    private AudioSource footsteps;    
+    private AudioSource footsteps;
 
     void Start()
     {
@@ -46,6 +46,15 @@ public class PlayerControl : MonoBehaviour
         //Action roll
         anim.SetBool("ActionRoll", Input.GetButton("ActionRoll"));
 
+        MovementHandle();
+
+        //walking animations triggers
+        anim.SetFloat("InputH", InputH);
+        anim.SetFloat("InputV", InputV);
+    }
+
+    public void MovementHandle()
+    {
         if (player.isGrounded)
         {
             // We are grounded, so recalculate
@@ -63,7 +72,7 @@ public class PlayerControl : MonoBehaviour
 
             //jump anim
             anim.SetBool("Jump", Input.GetButton("Jump"));
-            
+
             //walk animations
             if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
             {
@@ -77,17 +86,13 @@ public class PlayerControl : MonoBehaviour
 
         // Move the player
         if (!crouch)
-        player.Move(moveDirection * Time.deltaTime);
+            player.Move(moveDirection * Time.deltaTime);
 
         //no turning the player if Static button is held
         if (!Input.GetButton("Static"))
         {
             transform.Rotate(0.0f, Input.GetAxis("Mouse X") * 50f * Time.deltaTime, 0.0f);
         }
-
-        //walking animations triggers
-        anim.SetFloat("InputH", InputH);
-        anim.SetFloat("InputV", InputV);
     }
 
     public void OnTriggerEnter(Collider other)
@@ -96,12 +101,12 @@ public class PlayerControl : MonoBehaviour
         if (other.transform.tag == "End")
         {
             LevelManager.MainMenu();
-           // GameManager.EndGame(); //this is for now a debug and a application.quit
-           // TODO: think of a better ending to the game
+            // GameManager.EndGame(); //this is for now a debug and a application.quit
+            // TODO: think of a better ending to the maze
         }
-        
+
         //write code to activate cellgame
-        if(other.tag == "Starter")
+        if (other.tag == "Starter")
         {
             GameManager.StartGame(other.transform.parent.GetSiblingIndex(), other.transform.parent.gameObject); //this is for now a debug
             GameManager.start = true; //FIXME: this bool is not being used

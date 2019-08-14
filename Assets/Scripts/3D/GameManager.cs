@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static Camera main;
 
     public static GameObject[] others;
-    
+
     public static bool start = false;
 
     // Start is called before the first frame update
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //start any puzzle
+    //start any puzzle? FIXME: Maybe different methods per game?
     public static void StartGame(int cell, GameObject game)
     {
         Debug.Log("this is starter number: " + cell); //got the cell, now the camera
@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour
                     main.gameObject.SetActive(false);
                     cam.enabled = true;
                 }
-
             }
         }
 
