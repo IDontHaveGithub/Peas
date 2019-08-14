@@ -23,10 +23,10 @@ public class PlayerControl : MonoBehaviour
 
     void Start()
     {
-        footsteps = GetComponent<AudioSource>();
         player = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
-        
+        footsteps = GetComponent<AudioSource>();
+
         Cursor.lockState = CursorLockMode.Locked;
     }
 

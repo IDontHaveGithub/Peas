@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class SimonController : MonoBehaviour
 {
-    public GameObject Starter;
+    public float simonTime;
+    public int simonMax;
+    public bool simonIsSaying;
 
-    public SimonController Instance;
     public ButtonB[] btns;
 
-    public int simonMax;
-    public float simonTime;
-
+    public SimonController Instance;
     private List<int> userList, simonList;
-    public bool simonIsSaying;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +24,7 @@ public class SimonController : MonoBehaviour
 
         simonList = new List<int>();//create list to keep adding
 
-        StartCoroutine(SimonSays());
+        StartCoroutine(SimonSays());//TODO: now it starts at initialisation, it only has to start when called upon
     }
 
     //keeps track of users actions
@@ -54,18 +52,10 @@ public class SimonController : MonoBehaviour
         }
     }
 
-    //write script to turn on the right camera and play the game
-    public void GO()
-    {
-        //GameManager.others[/*find the right camera*/5].SetActive(true);
-        StartCoroutine(SimonSays());
-    }
-    
-
     //creates the order of the saying
     IEnumerator SimonSays()
     {
-       // Debug.Log("Prepare");
+        // Debug.Log("Prepare");
         yield return new WaitForSeconds(1);
 
         simonIsSaying = true;
@@ -84,13 +74,12 @@ public class SimonController : MonoBehaviour
         }
         else //and add a new one
         {
-
             int rand = Random.Range(0, 4);
             simonList.Add(rand);
 
             for (int i = 0; i < simonMax; i++)
             {
-                 btns[simonList[i]].Action();
+                btns[simonList[i]].Action();
 
                 yield return new WaitForSeconds(simonTime);
             }

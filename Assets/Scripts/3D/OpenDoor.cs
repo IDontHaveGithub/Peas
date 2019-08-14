@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// temporary script used for easy testing
+/// </summary>
 public class OpenDoor : MonoBehaviour
 {
-    //because it's not done yet, for now a button to open the next door, later done by finishing a puzzle of following the parkour.
+    //because it's not done yet, for now a button to open the next door, later done by finishing a puzzle or following the parkour.
     public Button openDoor;
     public Text currentRoom;
 

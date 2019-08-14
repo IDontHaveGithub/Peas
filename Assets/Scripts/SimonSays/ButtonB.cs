@@ -5,11 +5,12 @@ using UnityEngine;
 public class ButtonB : MonoBehaviour
 {
     public int id;
+
     public Animator anim;
     public AudioSource ding;
 
     SimonController simonController;
-    
+
     //initialize all things
     void Start()
     {
@@ -19,7 +20,6 @@ public class ButtonB : MonoBehaviour
         anim.enabled = false;
     }
 
-    //ifCLicked
     void OnMouseDown()
     {
         if (!simonController.simonIsSaying)

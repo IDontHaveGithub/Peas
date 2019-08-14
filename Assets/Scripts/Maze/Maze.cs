@@ -14,7 +14,7 @@ public class Maze : MonoBehaviour
 
     //used variable for testing
     //public Camera main;
-    
+
     private float wallLength;
 
     public int xSize = 5;
@@ -27,7 +27,6 @@ public class Maze : MonoBehaviour
     private int wallToBreak = 0;
 
     private Vector3 initialPos = new Vector3(0, 0.5f, 0);
-    private Vector3[] cellPosition;
     private Vector3 myPos;
 
     public GameObject wall;
@@ -37,11 +36,12 @@ public class Maze : MonoBehaviour
 
     private bool startedBuilding = false;
 
+    private Vector3[] cellPosition;
+    public GameObject[] cell = new GameObject[5];
+    private List<int> lastCells;
     [SerializeField]
     private Cell[] cells;
 
-    public GameObject[] cell = new GameObject[5];
-    private List<int> lastCells;
 
     // Start is called before the first frame update
     void Start()
@@ -61,8 +61,10 @@ public class Maze : MonoBehaviour
     void CreateWalls()
     {
         //create the parent
-        wallHolder = new GameObject();
-        wallHolder.name = "Maze";
+        wallHolder = new GameObject()
+        {
+            name = "Maze"
+        };
 
         //initialPos = new Vector3((-xSize / 2) + wallLength / 2, 0.0f, (-ySize / 2) + wallLength / 2);
         Vector3 myPos = initialPos;
@@ -122,13 +124,16 @@ public class Maze : MonoBehaviour
                 termcount = 0;
             }
 
-            cells[cellProcess] = new Cell();
-            cells[cellProcess].west = allWalls[westeastProcess];
-            cells[cellProcess].south = allWalls[childProcess + (xSize + 1) * ySize];
+            //create new cell
+            cells[cellProcess] = new Cell
+            {
+                west = allWalls[westeastProcess],
+                south = allWalls[childProcess + (xSize + 1) * ySize]
+            };
 
             westeastProcess++;
-            termcount++;
             childProcess++;
+            termcount++;
 
             cells[cellProcess].east = allWalls[westeastProcess];
             cells[cellProcess].north = allWalls[(childProcess + (xSize + 1) * ySize) + xSize - 1];
@@ -151,8 +156,10 @@ public class Maze : MonoBehaviour
     //spawn "rooms" for now colored cubes and rest of the walls
     void MakeCells()
     {
-        cellHolder = new GameObject();
-        cellHolder.name = "cells";
+        cellHolder = new GameObject
+        {
+            name = "Cells"
+        };
 
         GameObject tempCell;
 
@@ -253,7 +260,7 @@ public class Maze : MonoBehaviour
         int length = 0;
         int[] neighbours = new int[4];
         int[] connectingWall = new int[4];
-        int check = ((((currentCell + 1) / xSize)-1)*xSize)+xSize;
+        int check = ((((currentCell + 1) / xSize) - 1) * xSize) + xSize;
 
         //east
         if (currentCell + 1 < totalCells && (currentCell + 1) != check)
@@ -307,7 +314,7 @@ public class Maze : MonoBehaviour
         }
         else
         {
-            if(backingUp > 0)
+            if (backingUp > 0)
             {
                 currentCell = lastCells[backingUp];
                 backingUp--;

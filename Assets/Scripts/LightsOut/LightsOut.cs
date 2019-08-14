@@ -6,32 +6,27 @@ public class LightsOut : MonoBehaviour
 {
     //uses a lot of the maze script, but changed to accommodate only cells.
 
-    //get the cell and it's light
     public class Cell
     {
         public bool visited;
         public Light light;
     }
 
-    public GameObject cell;
-
     //get the basics of the grid
-    private float wallLength; // "cell"length
-    public static int xSize = 5;
-    public static int ySize = 5;
-    private Vector3 initialPos;
+    private float wallLength;
 
-    private GameObject cellHolder;
-    
-    //anything to do with cells
-    public Cell[] cells;
+    public int xSize = 5; //public cause of later uses in future
+    public int ySize = 5;
     public int currentCell = 0;
     private int totalCells;
 
-    //store all lights and neigbours
-    public List<GameObject> lights;
-    public List<int> neighbours = new List<int>();
+    private Vector3 initialPos;
 
+    public GameObject cell;
+    private GameObject cellHolder;
+    
+    public Cell[] cells;
+    public List<int> neighbours = new List<int>();
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +39,8 @@ public class LightsOut : MonoBehaviour
     void CreateCells()
     {
         totalCells = xSize * ySize;
+
+        //create parent object to keep hierarchy readable
         cellHolder = new GameObject();
         cellHolder.name = "LightsOut";
         cellHolder.transform.parent = transform;
@@ -56,8 +53,7 @@ public class LightsOut : MonoBehaviour
 
         cells = new Cell[xSize * ySize];
 
-        //becaue we just need one way of objects now, since it would become way more, just x-axis spawns
-        //for x axis
+        //because we just need one way of objects now, since it would become way more, just x-axis spawns
         for (int i = 0; i < ySize; i++)
         {
             for (int j = 0; j < xSize; j++)
@@ -84,7 +80,7 @@ public class LightsOut : MonoBehaviour
             allWalls[i].name = "" + i;
         }
 
-        cellHolder.transform.localScale = cellHolder.transform.localScale / 3;
+        cellHolder.transform.localScale /= 3f;
     }
 
 
@@ -104,7 +100,6 @@ public class LightsOut : MonoBehaviour
                 length++;
             }
         }
-
 
         //west neighbour
         if (currentCell + 1 > 0 && currentCell != check)
@@ -157,21 +152,19 @@ public class LightsOut : MonoBehaviour
     {
         int cellCount = 0;
 
-        for (int i = 0; i <cells.Length; i++)
+        for (int i = 0; i < cells.Length; i++)
         {
             if(cells[i].light.enabled)
             {
                 cellCount++;
-               
             }
         }
         Debug.Log(cellCount);
         if (cellCount == 0)
         {
-            //write WinCondition
+            //TODO: write WinCondition
             Debug.Log("Win"); //that's not wincondition
             LevelManager.MainMenu();
         }
-
     }
 }
