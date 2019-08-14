@@ -104,7 +104,7 @@ public class PlayerControl : MonoBehaviour
         if(other.tag == "Starter")
         {
             GameManager.StartGame(other.transform.parent.GetSiblingIndex(), other.transform.parent.gameObject); //this is for now a debug
-            GameManager.start = true; //BUG: this bool is not being used
+            GameManager.start = true; //FIXME: this bool is not being used
         }
     }
 
