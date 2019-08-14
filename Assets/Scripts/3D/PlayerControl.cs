@@ -1,9 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// The GameObject is made to bounce using the space key.
-// Also the GameObject can be moved forward/backward and left/right.
-// Add a Quad to the scene so this GameObject can collider with a floor.
 public class PlayerControl : MonoBehaviour
 {
     public float speed = 4.0f;
@@ -13,9 +10,9 @@ public class PlayerControl : MonoBehaviour
     private float InputH;
     private float InputV;
 
-    private Vector3 moveDirection = Vector3.zero;
-
     private bool crouch = false;
+
+    private Vector3 moveDirection = Vector3.zero;
 
     private CharacterController player;
     private Animator anim;
