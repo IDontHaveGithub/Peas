@@ -40,7 +40,7 @@ public class SimonController : MonoBehaviour
         if (userList.Count == simonList.Count)
         {
             // Debug.Log("Next level");
-            if (simonMax < 8)
+            if (simonMax < 8) //maximium of new lights, so it isn't endless
             {
                 StartCoroutine(SimonSays());
             }
@@ -72,7 +72,7 @@ public class SimonController : MonoBehaviour
                 yield return new WaitForSeconds(simonTime);
             }
         }
-        else //and add a new one
+        else //and add a new one when the game goes on
         {
             int rand = Random.Range(0, 4);
             simonList.Add(rand);

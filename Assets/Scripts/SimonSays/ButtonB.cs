@@ -20,6 +20,7 @@ public class ButtonB : MonoBehaviour
         anim.enabled = false;
     }
 
+    //click button to add it to the list
     void OnMouseDown()
     {
         if (!simonController.simonIsSaying)

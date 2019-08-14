@@ -12,13 +12,13 @@ public class LightsOut : MonoBehaviour
         public Light light;
     }
 
-    //get the basics of the grid
+    public int currentCell = 0;
+
     private float wallLength;
 
-    public int xSize = 5; //public cause of later uses in future
-    public int ySize = 5;
-    public int currentCell = 0;
-    private int totalCells;
+    private int XSize = 5;
+    private int YSize = 5;
+    private int TotalCells;
 
     private Vector3 initialPos;
 
@@ -38,7 +38,7 @@ public class LightsOut : MonoBehaviour
     //create cells
     void CreateCells()
     {
-        totalCells = xSize * ySize;
+        TotalCells = XSize * YSize;
 
         //create parent object to keep hierarchy readable
         cellHolder = new GameObject();
@@ -51,12 +51,12 @@ public class LightsOut : MonoBehaviour
         Vector3 myPos = initialPos;
         GameObject tempCell;
 
-        cells = new Cell[xSize * ySize];
+        cells = new Cell[XSize * YSize];
 
         //because we just need one way of objects now, since it would become way more, just x-axis spawns
-        for (int i = 0; i < ySize; i++)
+        for (int i = 0; i < YSize; i++)
         {
-            for (int j = 0; j < xSize; j++)
+            for (int j = 0; j < XSize; j++)
             {
                 myPos = new Vector3(initialPos.x + (j * wallLength) - wallLength / 2, .4f, initialPos.z + (i * wallLength) - wallLength / 2);
                 tempCell = Instantiate(cell, myPos, Quaternion.identity, cellHolder.transform) as GameObject;
@@ -89,10 +89,10 @@ public class LightsOut : MonoBehaviour
     {
         int length = 0;
         neighbours.Clear();
-        int check = ((((currentCell + 1) / xSize) - 1) * xSize) + xSize;
+        int check = ((((currentCell + 1) / XSize) - 1) * XSize) + XSize;
 
         //east neighbour
-        if (currentCell + 1 < totalCells && (currentCell + 1) != check)
+        if (currentCell + 1 < TotalCells && (currentCell + 1) != check)
         {
             if (cells[currentCell + 1].visited == false)
             {
@@ -112,21 +112,21 @@ public class LightsOut : MonoBehaviour
         }
 
         //north neighbour
-        if (currentCell + xSize < totalCells)
+        if (currentCell + XSize < TotalCells)
         {
-            if (cells[currentCell + xSize].visited == false)
+            if (cells[currentCell + XSize].visited == false)
             {
-                neighbours.Add(currentCell + xSize);
+                neighbours.Add(currentCell + XSize);
                 length++;
             }
         }
 
         //south neighbour
-        if (currentCell - xSize >= 0)
+        if (currentCell - XSize >= 0)
         {
-            if (cells[currentCell - xSize].visited == false)
+            if (cells[currentCell - XSize].visited == false)
             {
-                neighbours.Add(currentCell - xSize);
+                neighbours.Add(currentCell - XSize);
                 length++;
             }
         }
