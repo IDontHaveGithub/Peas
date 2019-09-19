@@ -66,11 +66,12 @@ public class Maze : MonoBehaviour
             name = "Maze"
         };
 
+        //
         //initialPos = new Vector3((-xSize / 2) + wallLength / 2, 0.0f, (-ySize / 2) + wallLength / 2);
         Vector3 myPos = initialPos;
         GameObject tempWall;
 
-
+        //create temporary walls that will functions as doors
         //for vertical walls
         for (int i = 0; i < ySize; i++)
         {
@@ -90,7 +91,6 @@ public class Maze : MonoBehaviour
                 tempWall = Instantiate(wall, myPos, Quaternion.Euler(-90f, 0f, 0f), wallHolder.transform) as GameObject;
             }
         }
-
 
         CreateCells();
     }
@@ -154,6 +154,7 @@ public class Maze : MonoBehaviour
     }
 
     //spawn "rooms" for now colored cubes and rest of the walls
+    //TODO: create better rooms to spawn
     void MakeCells()
     {
         cellHolder = new GameObject
@@ -238,7 +239,7 @@ public class Maze : MonoBehaviour
         }
     }
 
-    //the actual breaking of the walls
+    //switch case to destroy wall
     void BreakWall()
     {
         switch (wallToBreak)
@@ -254,7 +255,7 @@ public class Maze : MonoBehaviour
         }
     }
 
-    //get the neighbours to decide the way of the maze randomly and create maze.
+    //assign neighbouring walls to cells for easy removing
     void GiveMeNeighbour()
     {
         int length = 0;
