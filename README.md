@@ -7,4 +7,4 @@ The maze works nowadays, you walk into the grey block that spawns in every room 
 
 If you find the green coloured room, that's the end, you run into the blue cube and will be redirected to the menu I quickly made in 5 minutes. In this menu you also find the two puzzles that spawn in the maze, but can't play there. These puzzles do work in their respective scenes.
 
-It's not even close to done and I still work on it every day.
+It's not even close to done and I don't work on it anymore.
